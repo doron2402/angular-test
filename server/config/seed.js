@@ -7,7 +7,7 @@
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import Artist from '../api/artists/artist.model';
-var users = [];
+
 Thing.find({}).removeAsync()
   .then(() => {
     Thing.create({
@@ -53,32 +53,41 @@ User.find({}).removeAsync()
       name: 'Admin',
       email: 'admin@example.com',
       password: 'admin'
+    },{
+      provider: 'local',
+      role: 'artist',
+      name: 'Artisto',
+      email: 'artist@example.com',
+      password: 'artist'
     })
     .then((res) => {
       console.log('finished populating users');
-      // console.log(res);
-    });
-  });
 
-Artist.find({}).removeAsync()
-  .then(() => {
-    Artist.createAsync({
-      name: {
-          first: 'Doron',
-          middle: '',
-          last: 'Segal'
-      },
-      website: 'http://www.segaldoron.com'
-    }, {
-      name: {
-          first: 'John',
-          middle: '',
-          last: 'Smith'
-      },
-      website: 'http://www.johnsmith.com'
-    })
-    .then((res) => {
-      console.log('finished populating artists');
-      // console.log(res);
+      Artist.find({}).removeAsync()
+        .then(() => {
+          Artist.createAsync({
+            name: {
+                first: 'Doron',
+                middle: '',
+                last: 'Segal'
+            },
+            website: 'http://www.segaldoron.com',
+            user: res[2]._id
+          }, {
+            name: {
+                first: 'John',
+                middle: '',
+                last: 'Smith'
+            },
+            website: 'http://www.johnsmith.com'
+          })
+          .then((artistResult) => {
+            console.log('finished populating artists');
+            User.update({'_id': res[2]._id},{ 'artist': artistResult[0]._id}).then((complete) => {
+              console.log('user update.');
+              console.log(complete);
+            });
+          });
+        });
     });
   });

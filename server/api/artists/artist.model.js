@@ -10,6 +10,10 @@ var ArtistSchema = new Schema({
     middle: String,
     last: String
   },
+  user: {
+    type: String,
+    ref: 'User'
+  },
   email: {
     type: String,
     lowercase: true

@@ -16,6 +16,10 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
+  artist: {
+    type: String,
+    ref: 'Artist'
+  },
   password: String,
   provider: String,
   salt: String,

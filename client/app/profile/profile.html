@@ -1,0 +1,27 @@
+<navbar></navbar>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Profile</h1>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2>User</h2>
+      <p>{{profile.user._id}}</p>
+      <p>{{profile.user.name}}</p>
+    </div>
+  </div>
+</div>
+<div class="container" ng-show="profile.isArtist">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h2>Artist</h2>
+      <p>{{profile.artist.name.first}} {{profile.artist.name.last}}</p>
+    </div>
+  </div>
+</div>
+
+<footer></footer>

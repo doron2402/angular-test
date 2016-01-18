@@ -8,6 +8,9 @@ class NavbarController {
   }, {
     'title': 'Search',
     'state': 'search'
+  },{
+    'title': 'Profile',
+    'state': 'profile'
   }];
 
   isCollapsed = true;
@@ -17,6 +20,7 @@ class NavbarController {
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
+    this.isArtist = Auth.isArtist;
   }
 }
 

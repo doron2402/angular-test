@@ -29,3 +29,12 @@ export function index(req, res) {
     })
     .catch(handleError(res));
 }
+
+export function getById(req, res) {
+  Artist.findAsync({'_id': req.params.id})
+    .then(artist => {
+      console.log(artist)
+      res.status(200).json(artist);
+    })
+    .catch(handleError(res));
+}

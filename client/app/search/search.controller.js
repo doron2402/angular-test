@@ -6,10 +6,8 @@ class SearchController {
 
   constructor($http) {
     this.$http = $http;
-    this.awesomeThings = [];
-
+    this.artists = [];
     $http.get('/api/artists').then(response => {
-      console.log(response);
       this.artists = response.data;
     });
   }
