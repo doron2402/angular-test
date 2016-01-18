@@ -3,8 +3,8 @@
 (function() {
 
 class ArtistController {
-  constructor(User) {
-
+  constructor(Artist) {
+    this.artists = Artist.query();
   }
 
 }

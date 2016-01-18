@@ -37,3 +37,11 @@ export function getById(req, res) {
     })
     .catch(handleError(res));
 }
+
+export function updateArtistInfo(req, res) {
+  Artist.findAsync({'_id': req.params.id})
+    .then(artist => {
+      res.status(200).json(artist[0]);
+    })
+    .catch(handleError(res));
+}

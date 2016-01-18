@@ -15,11 +15,12 @@
     </div>
   </div>
 </div>
-<div class="container" ng-show="profile.isArtist">
+<div ng-if="!!profile.isArtist" class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <h2>Artist</h2>
       <p>{{profile.artist.name.first}} {{profile.artist.name.last}}</p>
+      <a href="" ng-click="profile.updateArtist()">Update</a>
     </div>
   </div>
 </div>
