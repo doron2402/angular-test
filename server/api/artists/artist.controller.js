@@ -33,8 +33,7 @@ export function index(req, res) {
 export function getById(req, res) {
   Artist.findAsync({'_id': req.params.id})
     .then(artist => {
-      console.log(artist)
-      res.status(200).json(artist);
+      res.status(200).json(artist[0]);
     })
     .catch(handleError(res));
 }

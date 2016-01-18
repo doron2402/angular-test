@@ -12,7 +12,7 @@ class ProfileController {
 
       $http.get('/api/artists/' + this.user.artist).then(response => {
 
-        this.artist = response.data[0];
+        this.artist = response.data;
         console.log(this.artist);
       });
     }

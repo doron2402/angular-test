@@ -83,7 +83,12 @@ User.find({}).removeAsync()
           })
           .then((artistResult) => {
             console.log('finished populating artists');
-            User.update({'_id': res[2]._id},{ 'artist': artistResult[0]._id}).then((complete) => {
+            User.update({
+              '_id': res[2]._id
+            },{
+              'artist': artistResult[0]._id,
+              'role': 'artist'
+            }).then((complete) => {
               console.log('user update.');
               console.log(complete);
             });
