@@ -8,9 +8,6 @@ class NavbarController {
   }, {
     'title': 'Search',
     'state': 'search'
-  },{
-    'title': 'Profile',
-    'state': 'profile'
   }];
 
   isCollapsed = true;

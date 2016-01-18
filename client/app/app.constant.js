@@ -3,7 +3,7 @@
 
 angular.module('heartApp.constants', [])
 
-.constant('appConfig', {userRoles:['guest','user', 'artist','admin']})
+.constant('appConfig', {userRoles:['guest','user','admin']})
 
 ;
 })(angular);
